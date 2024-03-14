@@ -5,13 +5,6 @@ local M = {
 
 function M.config()
 
-  -- always open the nvimtree at startup
-  local function open_nvim_tree()
-
-    -- open the tree
-    require("nvim-tree.api").tree.open()
-  end
-
   local wk = require "which-key"
   wk.register {
     ["<leader>e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
@@ -98,6 +91,8 @@ function M.config()
         error = icons.diagnostics.BoldError,
       },
     },
+
+
   }
 end
 

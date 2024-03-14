@@ -1,3 +1,8 @@
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+
 require "user.launch"
 require "user.options"
 require "user.keymaps"
@@ -28,3 +33,26 @@ spec "user.project"
 spec "user.indentline"
 spec "user.toggleterm"
 require "user.lazy"
+
+
+-- always open the nvimtree at startup
+
+local function open_nvim_tree()
+    -- open the tree
+    require("nvim-tree.api").tree.open()
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+-- 注意 lua的 function 要先声明后使用，也就是说要放在上一行的前面
+-- 参照 https://github.com/nvim-tree/nvim-tree.lua/wiki/Open-At-Startup
+    
+
+-- auto close
+vim.api.nvim_create_autocmd("BufEnter", {
+nested = true,
+callback = function()
+    if #vim.api.nvim_list_wins() == 1 and require("nvim-tree.utils").is_nvim_tree_buf() then
+    vim.cmd "quit"
+    end
+end
+})
