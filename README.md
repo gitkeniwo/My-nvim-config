@@ -3,6 +3,7 @@
 - Based on [LunarVim/Launch.vim](https://github.com/LunarVim/Launch.nvim).
 - Features nvim-tree and a vscode like UI.
 - Don't forget to run command `pip install pynvim`, `sudo brew install ripgrep` and `npm i -g neovim` as is specified below in the original README of [LunarVim/Launch.vim](https://github.com/LunarVim/Launch.nvim).
+- *Important*: for MacOS users, check if you have `trash` installed by `$which trash`. If zsh could not find it, simply install it by `$brew install trash`, as this will affect the `D` (trash the file/dir) operation in nvim-tree file explorer. I was baffled by `'trash' is not an executable` for an awfully long time this afternoon as the search engine couldn't even helped find another person who was also experiencing this error message. Read more about this in this issue [#1366](https://github.com/nvim-tree/nvim-tree.lua/issues/1366)
 - To apply changes of nvim-tree, add the configs in `init.lua`.
 
 My Changes:
