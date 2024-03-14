@@ -1,3 +1,15 @@
+# My nvim configs
+
+- Based on [LunarVim/Launch.vim](https://github.com/LunarVim/Launch.nvim).
+- Features nvim-tree and a vscode like UI.
+- Don't forget to run command `pip install pynvim`, `sudo brew install ripgrep` and `npm i -g neovim` as is specified below in the original README of [LunarVim/Launch.vim](https://github.com/LunarVim/Launch.nvim).
+- To apply changes of nvim-tree, add the configs in `init.lua`.
+
+My Changes:
+- Always open file explorer at startup.
+- Auto close nvim-tree if it's the last panel.
+
+---
 ```
     ✯                              .°•    |    
     __     °    •                __      / \   
